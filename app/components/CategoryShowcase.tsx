@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { categoryItems } from "../lib/categoryItems";
 
-export function CaegoryShowcase({ categoryName }: { categoryName: string }) {
+export function CategoryShowcase({ categoryName }: { categoryName: string }) {
   const category = categoryItems.find((item) => item.name === categoryName);
 
   return (
