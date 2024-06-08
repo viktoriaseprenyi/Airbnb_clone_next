@@ -1,3 +1,4 @@
+//Apartment's categories with specific types
 interface iAppProps {
     name: string;
     title: string;

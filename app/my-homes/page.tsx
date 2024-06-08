@@ -1,8 +1,17 @@
+//Get signed in user's datas
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
+//Prisma database
 import prisma from "../lib/db";
+
+//Nex redirect
 import { redirect } from "next/navigation";
+
+//Components
 import { NoItems } from "../components/NoItems";
 import { ListingCard } from "../components/ListingCard";
+
+//Next cache - to avoid cache
 import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId: string) {
@@ -34,6 +43,7 @@ async function getData(userId: string) {
   return data;
 }
 
+//Function with you are able to see your listed homes
 export default async function MyHomes() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
@@ -49,7 +59,7 @@ export default async function MyHomes() {
       {data.length === 0 ? (
         <NoItems
           description="Please list a hoeme on airbnb so that you can see it right here"
-          title="Your dont have any Homes listed"
+          title="Your don't have any homes listed"
         />
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-8 mt-8">

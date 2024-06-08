@@ -1,14 +1,23 @@
 "use client";
 
-import { Card, CardHeader } from "@/components/ui/card";
-import { categoryItems } from "../lib/categoryItems";
-import Image from "next/image";
+//React hook
 import { useState } from "react";
+
+//Shadcn UI
+import { Card, CardHeader } from "@/components/ui/card";
+
+//Categorys
+import { categoryItems } from "../lib/categoryItems";
+
+//Next Image
+import Image from "next/image";
+
 
 export function SelectedCategory() {
   const [selectedCategory, setSelectredCategory] = useState<string | undefined>(
     undefined
   );
+  
   return (
     <div className="grid grid-cols-4 gap-8 mt-10 w-3/5 mx-auto mb-36">
       <input type="hidden" name="categoryName" value={selectedCategory as string} />

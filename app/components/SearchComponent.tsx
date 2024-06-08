@@ -1,5 +1,6 @@
 "use client";
 
+//Shadcn UI
 import {
   Dialog,
   DialogContent,
@@ -18,14 +19,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-import { Search } from "lucide-react";
-import { useState } from "react";
-import { useCountries } from "../lib/getCountries";
-import { HomeMap } from "./HomeMap";
-import { Button } from "@/components/ui/button";
-import { CreationSubmit } from "./SubmitButton";
 import { Card, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+//Icon
+import { Search } from "lucide-react";
+
+//React hook
+import { useState } from "react";
+
+//To get all countries informations
+import { useCountries } from "../lib/getCountries";
+
+//Components
+import { HomeMap } from "./HomeMap";
+import { CreationSubmit } from "./SubmitButton";
 import { Counter } from "./Counter";
 
 export function SearchModalComponent() {
@@ -33,6 +41,7 @@ export function SearchModalComponent() {
   const [locationValue, setLocationValue] = useState("");
   const { getAllCountries } = useCountries();
 
+  //Ensure process goes correctly while filter for searching
   function SubmitButtonLocal() {
     if (step === 1) {
       return (

@@ -1,9 +1,14 @@
+//Shadcn UI
 import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
+//Components
 import { Counter } from "@/app/components/Counter";
 import { BottomBar } from "@/app/components/BottomBar";
+
+//Action
 import { CreateDescription } from "@/app/actions";
 
 export default function DescriptionPage({params}:{params: {id: string}}){

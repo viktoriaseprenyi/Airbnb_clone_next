@@ -1,19 +1,31 @@
 "use client"
 
-import { useCountries } from "@/app/lib/getCountries";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BottomBar } from "@/app/components/BottomBar";
-import { Skeleton } from "@/components/ui/skeleton";
-import dynamic from "next/dynamic";
+//React hook
 import {useState} from "react";
+
+//To get countries
+import { useCountries } from "@/app/lib/getCountries";
+
+//Shadcn UI
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
+
+//Component
+import { BottomBar } from "@/app/components/BottomBar";
+
+//Next dynamic
+import dynamic from "next/dynamic";
+
+//Action
 import { createLocation } from "@/app/actions";
 
 
 export default function Address({ params }: { params: { id: string } }){
-
+    //Destructure to getAllCountries
     const {getAllCountries} = useCountries();
     const [locationValue, setLocationValue] = useState("");
 
+    //Use dynamic to load Map with the proper location
     const LazyMap = dynamic(() => import("@/app/components/Map"), {
         ssr: false,
         loading: () => <Skeleton className="h-[50vh] w-full" />,

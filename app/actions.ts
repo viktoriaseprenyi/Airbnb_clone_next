@@ -1,11 +1,18 @@
 "use server";
 
+//Next redirect
 import { redirect } from "next/navigation";
-import prisma from "./lib/db";
-import { supabase } from "./lib/supabase";
-import { revalidatePath } from "next/cache";
-import path from "path";
 
+//Allows you to update static pages after they have been built and deployed without having to rebuild the entire site
+import { revalidatePath } from "next/cache";
+
+//Prisma database
+import prisma from "./lib/db";
+
+//Supabase
+import { supabase } from "./lib/supabase";
+
+//These actions are connected to a specific form and get datas to create upload the database, after redirect to a proper URL
 export async function createAirbnbHome({ userId }: { userId: string }) {
   const data = await prisma.home.findFirst({
     where: {

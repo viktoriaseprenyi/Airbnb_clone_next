@@ -1,12 +1,17 @@
 "use client";
 
+//From offical website, needed to import
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
+//React date range 
 import { DateRange } from "react-date-range";
-import { useState } from "react";
 import { eachDayOfInterval } from "date-fns";
 
+//React hook
+import { useState } from "react";
+
+//Function with you are able to select date range in the calendar
 export function SelectCalendar({
   reservation,
 }: {

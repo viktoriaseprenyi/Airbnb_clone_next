@@ -1,10 +1,13 @@
+//Icons
 import { File, FileQuestion } from "lucide-react";
 
+//Types
 interface IappProps {
   title: string;
   description: string;
 }
 
+//Function is for dynamic display when no items, favourites, home ect. found
 export function NoItems({ description, title }: IappProps) {
   return (
     <div className="flex min-h-[400px] flex-col items-center justify-center rounded-md border border-dashed p-8 text-center animate-in fade-in-50 mt-10">

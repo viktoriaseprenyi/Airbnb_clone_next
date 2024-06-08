@@ -1,8 +1,13 @@
+//Component
 import { SelectedCategory } from "@/app/components/SelectedCategory";
+
+//Action
 import {createCategoryPage} from "@/app/actions";
+
+//Shadcn UI
 import { BottomBar } from "@/app/components/BottomBar";
 
-
+//When create a home this is the first page where client can interact with - to select the proper category
 export default function StrucutreRoute({params}: {params:{id:string}}) {
   return (
     <>

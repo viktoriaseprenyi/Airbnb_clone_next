@@ -1,12 +1,20 @@
 "use client"
 
+//Shadcn UI
 import {Button} from "@/components/ui/button";
+
+//Icons
 import { Loader2 } from "lucide-react";
-import { useFormStatus } from "react-dom";
 import { Heart } from "lucide-react";
 
+//React hook - gives info about last form submission
+import { useFormStatus } from "react-dom";
+
+
 export function CreationSubmit(){
+  //Get pending status info - tells you if the form is actively submitting
     const {pending} = useFormStatus();
+
     return(
     <>
     {pending ? (<Button disabled size="lg">
@@ -47,6 +55,7 @@ export function AddToFavoriteButton() {
   }
   
   export function DeleteFromFavoriteButton() {
+    
     const { pending } = useFormStatus();
     return (
       <>

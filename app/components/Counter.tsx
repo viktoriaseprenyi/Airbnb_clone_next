@@ -1,9 +1,15 @@
 "use client";
 
+//Shadcn UI
 import { Button } from "@/components/ui/button";
+
+//Icons
 import { Minus, Plus } from "lucide-react";
+
+//React hook
 import { useState } from "react";
 
+//Counter button for add or substract given items
 export function Counter({name}: {name:string}){
     const [amount, setAmount]= useState(0);
 

@@ -1,8 +1,17 @@
+//Get signed in user's datas
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
+//Prisma database
 import prisma from "../lib/db";
+
+//Next redirect
 import { redirect } from "next/navigation";
+
+//Components
 import { NoItems } from "../components/NoItems";
 import { ListingCard } from "../components/ListingCard";
+
+//Next cache - to avoid cache
 import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId: string) {
@@ -27,11 +36,13 @@ async function getData(userId: string) {
 
   return data;
 }
-
+//Function to be able to get all of our favourites home's datas if you are signed in user
 export default async function FavoriteRoute() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
   if (!user) return redirect("/");
+  
   const data = await getData(user.id);
 
   return (

@@ -1,9 +1,12 @@
 "use client"
-
+//Components for map
 import {MapContainer, Marker, TileLayer} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useCountries } from "../lib/getCountries";
 import { icon } from "leaflet";
+
+//To get countries
+import { useCountries } from "../lib/getCountries";
+
 
 const ICON = icon({
     iconUrl:

@@ -1,21 +1,27 @@
 "use client";
 
+//Next Link, Image, Navigation
 import Link from "next/link";
-import { categoryItems } from "../lib/categoryItems";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
+
+//React hook
 import { useCallback } from "react";
+
+//To get all categories
+import { categoryItems } from "../lib/categoryItems";
+
 import { cn } from "@/lib/utils";
 
 export function MapFilterItems() {
   const searchParams = useSearchParams();
-  //use the get method to retrieve the value of a specific query parameter
+  //Use the get method to retrieve the value of a specific query parameter
   const search = searchParams.get("filter");
   const pathname = usePathname();
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-        //dynamically update the URL based on user interactions
+        //Dynamically update the URL based on user interactions
       const params = new URLSearchParams(searchParams.toString());
 
       params.set(name, value);

@@ -1,6 +1,10 @@
+//Next Image
 import Image from "next/image";
+
+//Previously created array of objects
 import { categoryItems } from "../lib/categoryItems";
 
+//Function to display airbnb apartmans category with icons
 export function CategoryShowcase({ categoryName }: { categoryName: string }) {
   const category = categoryItems.find((item) => item.name === categoryName);
 
@@ -8,7 +12,7 @@ export function CategoryShowcase({ categoryName }: { categoryName: string }) {
     <div className="flex items-center">
       <Image
         src={category?.imageUrl as string}
-        alt="Caegory image"
+        alt="Category image"
         width={44}
         height={44}
       />

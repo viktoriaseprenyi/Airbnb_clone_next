@@ -1,8 +1,17 @@
+//Get signed in user's datas
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
+//Components
 import { ListingCard } from "../components/ListingCard";
 import { NoItems } from "../components/NoItems";
+
+//Prisma database
 import prisma from "../lib/db";
+
+//Next redirect
 import { redirect } from "next/navigation";
+
+//Next cache - to avoid cache
 import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId: string) {
@@ -32,11 +41,15 @@ async function getData(userId: string) {
   return data;
 }
 
+//Function with you are able to display reservations you have
 export default async function ReservationsRoute() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
   if (!user?.id) return redirect("/");
+
   const data = await getData(user.id);
+  
   return (
     <section className="container mx-atuo px-5 lg:px-10 mt-10">
       <h2 className="text-3xl font-semibold tracking-tight">
@@ -45,7 +58,7 @@ export default async function ReservationsRoute() {
 
       {data.length === 0 ? (
         <NoItems
-          title="Hey you dont have any Reservations"
+          title="Hey, you don't have any reservations"
           description="Please add a reservation to see it right here..."
         />
       ) : (

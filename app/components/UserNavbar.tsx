@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+//Shadcn UI
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,20 +7,33 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+//Icon
 import { MenuIcon } from "lucide-react";
+
+//Kinde components for Auth
 import {
   RegisterLink,
   LoginLink,
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+
+//For getting user's data
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
+//Next Link
 import Link from "next/link";
+
+//Action
 import { createAirbnbHome } from "../actions";
 
+
 export async function UserNav() {
+  //Get signed in user's datas
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
+  //Using bind with first arg is null means that this keyword will be null, then prefilling the userId argument with user.id value
   const createHomewithId = createAirbnbHome.bind(null, {
     userId: user?.id as string,
   });

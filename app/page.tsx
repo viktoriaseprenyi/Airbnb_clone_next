@@ -1,11 +1,18 @@
-import { Suspense, use } from "react";
+import { Suspense } from "react";
 
+//Components
 import { MapFilterItems } from "./components/MapFilterItems";
-import prisma from "./lib/db";
+import { ListingCard } from "./components/ListingCard";
 import { SkeltonCard } from "./components/SkeletonCard";
 import { NoItems } from "./components/NoItems";
+
+//Prisma database
+import prisma from "./lib/db";
+
+//To get signed in user's data
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { ListingCard } from "./components/ListingCard";
+
+//Next cache - to avoid cache
 import { unstable_noStore as noStore } from "next/cache";
 
 async function getData({
@@ -91,7 +98,7 @@ async function ShowItems({
     <>
       {data.length === 0 ? (
         <NoItems
-          description="Please check a other category or create your own listing!"
+          description="Please check an other category or create your own listing!"
           title="Sorry no listings found for this category..."
         />
       ) : (

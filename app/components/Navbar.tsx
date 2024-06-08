@@ -1,7 +1,14 @@
+//Next Image
 import Image from "next/image";
+
+//Next Link
 import Link from "next/link";
+
+//Logos
 import desktoplogo from "../../public/airbnb-desktop.png";
 import mobilelogo from "../../public/airbnb-mobile.webp";
+
+//Components
 import { UserNav } from "./UserNavbar";
 import { SearchModalComponent } from "./SearchComponent";
 
